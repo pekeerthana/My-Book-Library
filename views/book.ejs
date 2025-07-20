@@ -1,0 +1,42 @@
+<body>
+    <%- include('partials/header.ejs'); -%>
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6 co-6"> <img
+                        src="https://covers.openlibrary.org/b/id/<%= book.id %>-M.jpg"
+                        class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes">
+                </div>
+                <div class="col-lg-6 col-6">
+                    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+                        <%= book.title %>
+                    </h1>
+                    <h3 class="fst-italic text-body-emphasis lh-1 mb-3">
+                        <%= book.subtitle %>
+                    </h3>
+                    <div class="text-muted float-end" style="font-size: 0.9rem;">- by <%= book.author %>
+                    </div>
+                    <br />
+
+                    <p class="lead">
+                        <%= book.description %>
+                    </p>
+                    <hr />
+                    <p> <span class="fw-bold">My Rating:</span>
+                        <%= book.rating %>
+                            <span class="float-end"> <span class="fw-bold">Updated on: </span>
+                                <%= new Date(book.loggeddate).toLocaleDateString() %>
+                            </span>
+                    </p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <form method="post" action="/delete/">
+                            <input type="hidden" name="id" value="<%=book.id %>" />
+                            <button class="btn btn-primary" type="submit">Delete</button>
+                        </form>
+                        <a href="/edit/<%= book.id %>" class="btn btn-primary align-self-start">Edit</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <%- include('partials/footer.ejs'); -%>
+</body>

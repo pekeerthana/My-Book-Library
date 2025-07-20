@@ -1,0 +1,41 @@
+<body>
+    <%- include('partials/header.ejs'); -%>
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+            <div class="row align-items-center g-lg-5 py-5">
+                <div class="col-md-10 mx-auto col-lg-7" style="min-height: 400px;">
+                    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/update" method="post">
+                        <label for="id">Id</label>
+                        <div>
+                            <input type="text" inputmode="numeric" class="form-control" name="id" id="id" required>
+                        </div>
+                        <label for="title">Title</label>
+                        <div>
+                            <input type="text" class="form-control" name="title" id="title" required>
+                        </div>
+                        <label for="content">Subtitle</label>
+                        <div>
+                            <textarea name="subtitle" class="form-control" id="subtitle"></textarea>
+                        </div>
+                        <label for="description">Description</label>
+                        <div>
+                            <textarea name="description" class="form-control" id="description"></textarea>
+                        </div>
+                        <label for="description">Author</label>
+                        <div>
+                            <textarea name="author" class="form-control" id="author"></textarea>
+                        </div>
+                        <label for="rating">Rating</label>
+                        <div>
+                            <input name="rating" id="number" type="number" step="0.1" min="0" max="5" required />
+                        </div>
+                        <div>
+                            <input type="hidden" name="loggeddate" value="<%= new Date().toISOString() %>" />
+                        </div>
+                        <br />
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%- include('partials/footer.ejs'); -%>
+</body>

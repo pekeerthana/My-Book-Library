@@ -1,0 +1,39 @@
+<body>
+    <%- include('partials/header.ejs'); -%>
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+            <div class="row align-items-center g-lg-5 py-5">
+                <div class="col-lg-5 text-center text-lg-start" style="min-height: 400px;">
+                    <img src="https://covers.openlibrary.org/b/id/<%= book.id %>-L.jpg" class="img-fluid" alt="...">
+                </div>
+                <div class="col-md-10 mx-auto col-lg-7" style="min-height: 400px;">
+                    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/update" method="post">
+                        <input type="hidden" name="id" value="<%= book.id %>" />
+                        <label for="title">Title</label>
+                        <div>
+                            <input type="text" class="form-control" name="title" id="title" value="<%= book.title %>"
+                                required>
+                        </div>
+                        <label for="content">Subtitle</label>
+                        <div>
+                            <textarea name="subtitle" class="form-control" id="subtitle"><%= book.subtitle %></textarea>
+                        </div>
+                        <label for="description">Description</label>
+                        <div>
+                            <textarea name="description" class="form-control" id="description"><%= book.description %></textarea>
+                        </div>
+                        <label for="rating">Rating</label>
+                        <div>
+                            <input name="rating" id="number" type="number" step="0.1" min="0" max="5"
+                                value="<%= book.rating %>" />
+                        </div>
+                        <div>
+                            <input type="hidden" name="loggeddate" value="<%= new Date().toISOString() %>" />
+                        </div>
+                        <br />
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+            <%- include('partials/footer.ejs'); -%>
+</body>
