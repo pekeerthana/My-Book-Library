@@ -1,31 +1,14 @@
-# Node.js dependencies
+# Node.js
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-package-lock.json
-package.json
 .env
-
-# PostgreSQL data
-*.sql
-*.dump
-
-# VS Code settings
-.vscode/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
 
 # OS files
 .DS_Store
 Thumbs.db
 
-# Logs
-logs/
-*.log
-
-# Build output
-dist/
-build/
-
-# Misc
-*.swp
-*.swo
+# Editor folders
+.vscode/
+.idea/
